@@ -1,0 +1,124 @@
+/* NAVBAR BASE */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  padding: 20px 40px;
+  background-color: transparent;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* LOGO */
+.logo img {
+  height: 60px;
+  border-radius: 50px;
+}
+
+/* NAV LINKS (centered) */
+.nav-links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 60px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* LINK ITEM */
+.nav-links li a {
+  position: relative;
+  color: black;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: 500;
+  display: inline-block;
+  padding-bottom: 6px;
+  transition: transform 0.3s ease;
+}
+
+/* UNDERLINE */
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background-color: black;
+  transform: scaleX(1);
+  transform-origin: center; /* expands evenly from center */
+  transition: transform 0.3s ease;
+}
+
+/* HOVER EFFECT */
+.nav-links li a:hover {
+  transform: scale(1.15);
+}
+
+.nav-links li a:hover::after {
+  transform: scaleX(1.4); /* expands line from center */
+}
+
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  transition: 0.4s;
+}
+
+.bar.rotate1 {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.bar.fade {
+  opacity: 0;
+}
+
+.bar.rotate2 {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 80px;
+    left: 40px;
+    transform: none;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 8px;
+    display: none;
+    z-index: 1000;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
